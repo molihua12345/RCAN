@@ -28,13 +28,13 @@ cudnn.benchmark = True
 # When evaluating the performance of the SR model, whether to verify only the Y channel image data
 only_test_y_channel = True
 # Model architecture name
-model_arch_name = "rcan_x4"
+model_arch_name = "rcan_cbam_x4"
 # Upscale factor
 upscale_factor = 4
 # Current configuration parameter method
-mode = "test"
+mode = "train"
 # Experiment name, easy to save weights and log files
-exp_name = "RCAN_x4-DIV2K"
+exp_name = "RCAN_CBAM_x4-DIV2K"
 
 if mode == "train":
     train_gt_images_dir = f"./data/DIV2K/RCAN/train"
