@@ -153,7 +153,6 @@ adversarial_weight = 0.001
 3. **Loss Weights**: Start with conservative settings and gradually increase perceptual/adversarial weights
 4. **Training Time**: Improved version takes 50-70% longer due to additional computations
 
-For detailed usage instructions, see `IMPROVED_USAGE.md`.
 
 ## Result
 

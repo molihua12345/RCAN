@@ -179,32 +179,36 @@ def main():
         # Automatically save the model with the highest index
         is_best = psnr > best_psnr and ssim > best_ssim
         is_last = (epoch + 1) == config.epochs
+        # Save every 10 epochs or if it's the best/last model
+        should_save = (epoch + 1) % 10 == 0 or is_best or is_last
+        
         best_psnr = max(psnr, best_psnr)
         best_ssim = max(ssim, best_ssim)
         
-        checkpoint_dict = {
-            "epoch": epoch + 1,
-            "best_psnr": best_psnr,
-            "best_ssim": best_ssim,
-            "state_dict": sr_model.state_dict(),
-            "ema_state_dict": ema_sr_model.state_dict(),
-            "optimizer": optimizer.state_dict(),
-            "scheduler": scheduler.state_dict()
-        }
-        
-        # Add discriminator state if using adversarial training
-        if discriminator is not None:
-            checkpoint_dict["discriminator"] = discriminator.state_dict()
-            checkpoint_dict["discriminator_optimizer"] = discriminator_optimizer.state_dict()
-        
-        save_checkpoint(checkpoint_dict,
-                        f"epoch_{epoch + 1}.pth.tar",
-                        samples_dir,
-                        results_dir,
-                        "best.pth.tar",
-                        "last.pth.tar",
-                        is_best,
-                        is_last)
+        if should_save:
+            checkpoint_dict = {
+                "epoch": epoch + 1,
+                "best_psnr": best_psnr,
+                "best_ssim": best_ssim,
+                "state_dict": sr_model.state_dict(),
+                "ema_state_dict": ema_sr_model.state_dict(),
+                "optimizer": optimizer.state_dict(),
+                "scheduler": scheduler.state_dict()
+            }
+            
+            # Add discriminator state if using adversarial training
+            if discriminator is not None:
+                checkpoint_dict["discriminator"] = discriminator.state_dict()
+                checkpoint_dict["discriminator_optimizer"] = discriminator_optimizer.state_dict()
+            
+            save_checkpoint(checkpoint_dict,
+                            f"epoch_{epoch + 1}.pth.tar",
+                            samples_dir,
+                            results_dir,
+                            "best.pth.tar",
+                            "last.pth.tar",
+                            is_best,
+                            is_last)
 
 
 def load_dataset(

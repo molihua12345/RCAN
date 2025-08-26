@@ -32,7 +32,7 @@ model_arch_name = "rcan_cbam_x4"
 # Upscale factor
 upscale_factor = 4
 # Current configuration parameter method
-mode = "train"
+mode = "test"
 # Experiment name, easy to save weights and log files
 exp_name = "RCAN_CBAM_x4-DIV2K"
 
@@ -80,4 +80,4 @@ if mode == "test":
     test_sr_images_dir = f"./results/test/{exp_name}"
     test_lr_images_dir = f"./data/Set5/LRbicx{upscale_factor}"
 
-    model_weights_path = f"./results/pretrained_models/RCAN_x4-DIV2K-2dfffdd2.pth.tar"
+    model_weights_path = f"./results/RCAN_CBAM_x4-DIV2K/best.pth.tar"
