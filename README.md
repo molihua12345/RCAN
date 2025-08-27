@@ -34,14 +34,12 @@ Extensive experiments show that our RCAN achieves better accuracy and visual imp
 
 ## Download weights
 
-- [Google Driver](https://drive.google.com/drive/folders/17ju2HN7Y6pyPK2CC_AqnAfTOe9_3hCQ8?usp=sharing)
-- [Baidu Driver](https://pan.baidu.com/s/1yNs4rqIb004-NKEdKBJtYg?pwd=llot)
+- [Quark Driver](https://pan.quark.cn/s/dca984aef971)
 
 ## Download datasets
 
 Contains DIV2K, DIV8K, Flickr2K, OST, T91, Set5, Set14, BSDS100 and BSDS200, etc.
 
-- [Google Driver](https://drive.google.com/drive/folders/1A6lzGeQrFMxPqJehK9s37ce-tPDj20mD?usp=sharing)
 - [Baidu Driver](https://pan.baidu.com/s/1o-8Ty_7q6DiS3ykLU09IVg?pwd=llot)
 
 ## Test
@@ -70,7 +68,7 @@ If you want to load weights that you've trained before, modify the contents of t
 
 This repository includes an improved version of RCAN with enhanced attention mechanisms and composite loss functions.
 
-### 🚀 Improvements
+### Improvements
 
 #### 1. CBAM Attention Mechanism
 - **Channel Attention**: Combines average pooling and max pooling for enhanced channel feature representation
@@ -82,7 +80,7 @@ This repository includes an improved version of RCAN with enhanced attention mec
 - **Perceptual Loss**: Based on VGG19 features for improved visual quality
 - **Adversarial Loss**: Uses ESRGAN-style discriminator for enhanced realism
 
-### 📁 New Files
+### New Files
 
 ```
 ├── model.py              # Enhanced with CBAM classes
@@ -93,7 +91,7 @@ This repository includes an improved version of RCAN with enhanced attention mec
 └── IMPROVED_USAGE.md     # Detailed usage guide
 ```
 
-### 🛠️ Quick Start
+### Quick Start
 
 #### Install Dependencies
 ```bash
@@ -114,7 +112,7 @@ model_arch_name = "rcan_cbam_x4"  # Instead of "rcan_x4"
 - `rcan_cbam_x4`: RCAN with CBAM attention (recommended)
 - Support for x2, x3, x4, x8 scales
 
-### ⚙️ Configuration Options
+### Configuration Options
 
 #### Model Selection
 ```python
@@ -137,7 +135,7 @@ perceptual_weight = 0.006
 adversarial_weight = 0.001
 ```
 
-### 📈 Expected Improvements
+### Expected Improvements
 
 | Configuration | PSNR Gain | SSIM Gain | Visual Quality |
 |---------------|-----------|-----------|----------------|
@@ -146,7 +144,7 @@ adversarial_weight = 0.001
 | RCAN + Composite Loss | +0.1~0.3dB | +0.02~0.04 | Notable improvement |
 | RCAN + CBAM + Composite | +0.3~0.8dB | +0.03~0.06 | Significant improvement |
 
-### 💡 Usage Tips
+### Usage Tips
 
 1. **Memory Management**: Reduce `batch_size` if encountering OOM errors
 2. **Fine-tuning**: Use smaller learning rates (1e-5) when fine-tuning pretrained models
